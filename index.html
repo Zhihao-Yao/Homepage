@@ -1,16 +1,58 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Your Name</title>
   <style>
-    body { font-family: Arial; text-align: center; padding: 2em; }
-    img { border-radius: 50%; max-width: 150px; }
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2em;
+      line-height: 1.6;
+    }
+    header {
+      text-align: center;
+    }
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+    }
+    section {
+      margin-top: 3em;
+    }
   </style>
 </head>
 <body>
-  <h1>Hi there, I'm Zhihao Yao 👋</h1>
-  <p>Welcome to my personal website!</p>
-  <p><a href="https://github.com/zhh-yao">GitHub</a> | 
-     <a href="mailto:zhhyao823917@gmail.com">Email</a></p>
+  <header>
+    <h1>Your Name</h1>
+    <p>Your short tagline or profession</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Write a short paragraph about who you are, what you do, what you're passionate about.</p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <ul>
+      <li><strong>Cool App</strong>: A web app that does XYZ. <a href="#">[GitHub]</a></li>
+      <li><strong>Another Project</strong>: Description here. <a href="#">[Live Demo]</a></li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:zhhyao823917@gmail.com">zhhyao823917@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/zhh-yao">zhh-yao</a></p>
+  </section>
 </body>
 </html>
