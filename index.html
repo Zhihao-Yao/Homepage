@@ -13,7 +13,7 @@
       max-width: 100%;
       margin: 0 auto;
       padding: 2em;
-      line-height: 1.6;
+      line-height: 24px;
     }
     /* 1.1 Full-width hero image */
     .hero-image {
@@ -26,7 +26,7 @@
     }
     .hero-text {
       position: absolute;
-      top: 20%;
+      top: 32%;
       left: 50%;
       transform: translate(-50%, -50%);
       color: #555;
@@ -57,6 +57,23 @@
       font-weight: bold;
       color: #333;
     }
+    .social-icons {
+      margin-top: 1em;
+      display: flex;
+      gap: 10px; /* space between icons */
+    }
+
+    .social-icons a img {
+      width: 30px;
+      height: 30px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .social-icons a:hover img {
+      transform: scale(1.1);
+      opacity: 0.8;
+      cursor: pointer;
+    }
   </style>
 </head>
 
@@ -69,7 +86,21 @@
 
   <header class="site-header">
     <div class="left-panel">
-      <p><span class="greeting">Hi</span> there, my name is Zhihao Yao. I am a researcher in bioinformatics and computational biology. My interest lies in the interdisciplinary innovation in artificial intelligence, complex diseases, and multi-omics data.</p>
+      <p><span class="greeting">Hi</span> there, my name is Zhihao Yao (姚志豪). I am a researcher in bioinformatics and computational biology. My interest lies in the interdisciplinary innovation in artificial intelligence, complex diseases, and multi-omics data.</p>
+      <div class="social-icons">
+        <a href="https://github.com/zhh-yao" target="_blank">
+          <img src="supp/github.svg" alt="GitHub">
+        </a>
+        <a href="mailto:zhhyao823917@gmail.com">
+          <img src="supp/gmail.svg" alt="Email">
+        </a>
+        <a href="https://www.instagram.com/yyyyzhihao/">
+          <img src="supp/instagram.svg" alt="Instagram">
+        </a>
+        <a href="https://www.instagram.com/yyyyzhihao/">
+          <img src="supp/wechat.svg" alt="Wechat">
+        </a>
+      </div>
     </div>
   </header>
 
@@ -93,22 +124,5 @@
     <p></p>
   </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <div>
-      <a href="mailto:zhhyao823917@gmail.com" target="_blank">
-        <img src="supp/gmail.svg" alt="Email Icon" style="width:30px; height:30px;"> 
-      </a>
-      <a href="https://github.com/zhh-yao" target="_blank">
-        <img src="supp/github.svg" alt="Github Icon" style="width:30px; height:30px;"> 
-      </a>
-      <a href="https://www.instagram.com/yyyyzhihao/" target="_blank">
-        <img src="supp/instagram.svg" alt="Wechat Icon" style="width:30px; height:30px;"> 
-      </a>
-      <a href="https://github.com/zhh-yao" target="_blank">
-        <img src="supp/wechat.svg" alt="Wechat Icon" style="width:30px; height:30px;"> 
-      </a>
-    </div>
-  </section>
 </body>
 </html>
