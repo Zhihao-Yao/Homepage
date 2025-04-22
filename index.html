@@ -5,50 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Your Name</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 1600px;
-      margin: 0 auto;
-      padding: 2em;
-      line-height: 1.6;
-    }
-    header {
-      text-align: center;
-    }
-    section {
-      margin-top: 3em;
-    }
-    .hero {
+    /* 1. Full-width hero image */
+    .hero-image {
       background-image: url('supp/background.jpg');
       background-size: cover;
       background-position: center;
-      color: black;
-      padding: 100px 20px;
-      position: relative;
-      text-align: center;
+      height: 300px;
+      width: 100%;
     }
-    .overlay {
-      background-color: transparent;
-    }    
-    nav a {
-      margin: 0 10px;
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
+    /* 2. Header area below the image */
+    .site-header {
+      display: flex;
+      padding: 2em;
+    }
+    /* 3. Left-side name and description */
+    .left-panel {
+      max-width: 300px;
+    }
+
+    .left-panel h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+
+    .left-panel p {
+      color: #666;
+      margin-top: 0.5em;
     }
   </style>
 </head>
 <body>
-  <header class="hero">
-    <div class="overlay">
+  <div class="hero-image"></div>
+
+  <header class="site-header">
+    <div class="left-panel">
       <h1>Your Name</h1>
       <p>Your short tagline or profession</p>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#contact">Contact</a>
-      </nav>
     </div>
   </header>
 
@@ -78,17 +70,14 @@
       <a href="mailto:zhhyao823917@gmail.com" target="_blank">
         <img src="supp/gmail.svg" alt="Email Icon" style="width:30px; height:30px;"> 
       </a>
-      &nbsp;&nbsp;
       <a href="https://github.com/zhh-yao" target="_blank">
         <img src="supp/github.svg" alt="Github Icon" style="width:30px; height:30px;"> 
       </a>
-      &nbsp;&nbsp;
-      <a href="https://github.com/zhh-yao" target="_blank">
-        <img src="supp/wechat.svg" alt="Wechat Icon" style="width:30px; height:30px;"> 
-      </a>
-      &nbsp;&nbsp;
       <a href="https://www.instagram.com/yyyyzhihao/" target="_blank">
         <img src="supp/instagram.svg" alt="Wechat Icon" style="width:30px; height:30px;"> 
+      </a>
+      <a href="https://github.com/zhh-yao" target="_blank">
+        <img src="supp/wechat.svg" alt="Wechat Icon" style="width:30px; height:30px;"> 
       </a>
     </div>
   </section>
