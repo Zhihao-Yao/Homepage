@@ -37,26 +37,14 @@
     /* Introduction area below the image */
     .intro-section {
       display: flex;
+      justify-content: space-between;
       gap: 2em;
       padding: 2em;
-      align-items: flex-start;
     }
-    /* Left- and right-side description */
-    .left-panel {
-      max-width: 30%;
-      text-align: center;
-    }
-    .left-panel p {
-      text-align: justify;
+    .intro {
+      flex: 1;
       font-size: 1em;
-      color: #555;
-      margin: 0;
-    }
-    .right-panel {
-      max-width: 60%;
-      text-align: justify;
-      font-size: 1em;
-      color: black;
+      line-height: 1.6;
     }
     /* Module grid layout */
     .module-grid {
@@ -100,10 +88,24 @@
       font-weight: bold;
       color: #333;
     }
-    .special {
-      font-size: 1em;
-      font-weight: bold;
-      color: #333;
+    .line-with-text {
+      text-align: center;
+      position: relative;
+      margin: 2em 0 1em;
+      color: #666;
+      font-size: 0.9em;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .line-with-text::before,
+    .line-with-text::after {
+      content: "";
+      display: inline-block;
+      width: 40%;
+      height: 1px;
+      background-color: #ccc;
+      vertical-align: middle;
+      margin: 0 0.5em;
     }
     /* Social icons */
     .social-icons {
@@ -132,9 +134,9 @@
   </div>
 
   <header class="intro-section">
-    <div class="left-panel">
+    <div class="intro left-intro">
       <p><span class="greeting">Hi</span> there, my name is Zhihao Yao (姚志豪). I am a researcher in Bioinformatics and Computational Biology. My interest lies in the interdisciplinary innovation in artificial intelligence, complex diseases, and multi-omics data.</p>
-      <p><span class="special">Find me</span></p>
+      <div class="line-with-text">find me</div>
       <div class="social-icons">
         <a href="https://github.com/zhh-yao" target="_blank">
           <img src="supp/github.svg" alt="GitHub">
@@ -150,7 +152,7 @@
         </a>
       </div>
     </div>
-    <div class="right-panel">
+    <div class="intro right-intro">
       <p>I specialize in machine learning, bioinformatics, and building tools that help scientists get insights faster.</p>
     </div>
   </header>
