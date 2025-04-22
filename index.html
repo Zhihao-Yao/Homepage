@@ -42,33 +42,57 @@
     }
     /* 3. Left-side name and description */
     .left-panel {
-      max-width: 20%;
+      max-width: 25%;
       text-align: center;
     }
-    /* 3. Profile picture format */
     .left-panel p {
       text-align: justify;
       font-size: 1em;
       color: #555;
       margin: 0;
     }
+    .right-panel {
+      display: grid;
+      grid-template-columns: repeat(2, 100px);
+      grid-gap: 20px;
+    }
+    /* Individual modules */
+    .module {
+      width: 100px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+    .module:hover {
+      transform: scale(1.05);
+      cursor: pointer;
+    }
+    .module-1 { background-color: #FF6B6B; }  /* Red-ish */
+    .module-2 { background-color: #4ECDC4; }  /* Teal */
+    .module-3 { background-color: #FFD93D; color: #333; }  /* Yellow with dark text */
+    .module-4 { background-color: #1A535C; }  /* Dark teal */
     .greeting {
       font-size: 1.4em;
       font-weight: bold;
       color: #333;
     }
+    /* Social icons */
     .social-icons {
       margin-top: 1em;
       display: flex;
-      gap: 10px; /* space between icons */
+      gap: 15px; /* space between icons */
     }
-
     .social-icons a img {
       width: 25px;
       height: 25px;
       transition: transform 0.3s ease, opacity 0.3s ease;
     }
-
     .social-icons a:hover img {
       transform: scale(1.4);
       opacity: 0.8;
@@ -102,27 +126,14 @@
         </a>
       </div>
     </div>
+    <div class="right-panel">
+      <div class="module module-1">About Me</div>
+      <div class="module module-2">Projects</div>
+      <div class="module module-3">Gallery</div>
+      <div class="module module-4">More</div>
+    </div>
   </header>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>I am a researcher in bioinformatics and computational biology. My interest lies in the interdisciplinary innovation in artificial intelligence, complex diseases, and multi-omics data</p>
-  </section>
-
-  <section id="projects">
-    <h2>Projects</h2>
-    <ul>
-      <li><strong>Long-reads RNA-seq and Splicing</strong>: Description here. <a href="#">[A]</a></li>
-      <li><strong>3D-genomics Community Analysis </strong>: Description here. <a href="#">[B]</a></li>
-      <li><strong>Cancer Evolution and Heterogeneity</strong>: Description here. <a href="#">[C]</a></li>
-      <li><strong>High-dimentional Data Correlation</strong>: Description here. <a href="#">[D]</a></li>
-    </ul>
-  </section>
-
-  <section id="gallery">
-    <h2>Gallery</h2>
-    <p></p>
-  </section>
 
 </body>
 </html>
