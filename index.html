@@ -22,6 +22,18 @@
       background-position: center;
       height: 500px;
       width: 100%;
+      position: relative;
+    }
+    .hero-text {
+      position: absolute;  /* Position the text on top */
+      top: 50%;            /* Center vertically */
+      left: 50%;           /* Center horizontally */
+      transform: translate(-50%, -50%); /* Adjust for perfect centering */
+      color: black;
+      font-size: 1.5em;
+      font-weight: bold;
+      text-align: center;
+      padding: 0 20px;     /* Optional, for spacing around text */
     }
     /* 2. Header area below the image */
     .site-header {
@@ -35,15 +47,9 @@
       text-align: center;
     }
     /* 3. Profile picture format */
-    .profile-pic {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;  /* makes it a circle */
-      object-fit: cover;   /* keeps it nicely cropped */
-      margin-bottom: 1em;
-    }
     .left-panel p {
-      font-size: 0.95em;
+      text-align: left;
+      font-size: 1em;
       color: #555;
       margin: 0;
     }
@@ -51,11 +57,14 @@
 </head>
 
 <body>
-  <div class="hero-image"></div>
+  <div class="hero-image">
+    <div class="hero-text">
+      <p>Look deep into nature, and then you will understand everything better. --Albert Einstein</p>
+    </div>
+  </div>
 
   <header class="site-header">
     <div class="left-panel">
-      <img src="supp/profile.jpg" alt="Profile Picture" class="profile-pic">
       <p>Hi there, my name is Zhihao Yao (姚志豪). I am a researcher in bioinformatics and computational biology. My interest lies in the interdisciplinary innovation in artificial intelligence, complex diseases, and multi-omics data.</p>
     </div>
   </header>
