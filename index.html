@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Zhihao's Universe</title>
   <style>
-    /* 0. Global style */
+    /* Global font style */
     body {
       font-family: Arial, sans-serif;
       max-width: 100%;
@@ -15,7 +15,7 @@
       padding: 2em;
       line-height: 24px;
     }
-    /* 1.1 Full-width hero image */
+    /* Full-width hero image */
     .hero-image {
       background-image: url('supp/background.jpg');
       background-size: cover;
@@ -34,15 +34,16 @@
       text-align: center;
       padding: 0 10px;
     }
-    /* 2. Header area below the image */
-    .site-header {
+    /* Introduction area below the image */
+    .intro-section {
       display: flex;
+      gap: 2em;
       padding: 2em;
       align-items: flex-start;
     }
-    /* 3. Left-side name and description */
+    /* Left- and right-side description */
     .left-panel {
-      max-width: 25%;
+      max-width: 30%;
       text-align: center;
     }
     .left-panel p {
@@ -52,38 +53,55 @@
       margin: 0;
     }
     .right-panel {
-      display: grid;
-      grid-template-columns: repeat(2, 100px);
-      grid-gap: 20px;
+      max-width: 60%;
+      text-align: justify;
+      font-size: 1em;
+      color: black;
     }
-    /* Individual modules */
-    .module {
-      width: 300px;
-      height: 100px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
+    /* Module grid layout */
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      text-align: center;
+      padding: 1em 2em;
+      gap: 1em;
+    }
+    .module-tab {
+      padding: 1em;
       font-weight: bold;
+      color: white;
+      background-color: #4ECDC4;
       border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      cursor: pointer;
       transition: transform 0.2s ease;
     }
-    .module:hover {
+    .module-tab:hover {
       transform: scale(1.05);
-      cursor: pointer;
+      background-color: #3cb6ae;
     }
-    .module-1 { background-color: #FF6B6B; }  /* Red-ish */
-    .module-2 { background-color: #4ECDC4; }  /* Teal */
-    .module-3 { background-color: #FFD93D; color: #333; }  /* Yellow with dark text */
-    .module-4 { background-color: #1A535C; }  /* Dark teal */
+    /* Content sections (hidden by default) */
+    .module-content {
+      padding: 2em;
+    }
+    .module-section {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+    .module-section.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    /* Other customized styles */
     .greeting {
       font-size: 1.4em;
       font-weight: bold;
       color: #333;
     }
     .special {
-      font-size: 1.2em;
+      font-size: 1em;
       font-weight: bold;
       color: #333;
     }
@@ -113,10 +131,10 @@
     </div>
   </div>
 
-  <header class="site-header">
+  <header class="intro-section">
     <div class="left-panel">
       <p><span class="greeting">Hi</span> there, my name is Zhihao Yao (姚志豪). I am a researcher in bioinformatics and computational biology. My interest lies in the interdisciplinary innovation in artificial intelligence, complex diseases, and multi-omics data.</p>
-      <p><span class="special">Find me:</span></p>
+      <p><span class="special">Find me</span></p>
       <div class="social-icons">
         <a href="https://github.com/zhh-yao" target="_blank">
           <img src="supp/github.svg" alt="GitHub">
@@ -133,13 +151,36 @@
       </div>
     </div>
     <div class="right-panel">
-      <div class="module module-1">About Me</div>
-      <div class="module module-2">Projects</div>
-      <div class="module module-3">Gallery</div>
-      <div class="module module-4">More</div>
+      <p>I specialize in machine learning, bioinformatics, and building tools that help scientists get insights faster.</p>
     </div>
   </header>
 
+  <section class="module-grid">
+    <div class="module-tab" data-target="about">About</div>
+    <div class="module-tab" data-target="projects">Projects</div>
+    <div class="module-tab" data-target="gallery">Gallery</div>
+    <div class="module-tab" data-target="more">More</div>
+  </section>
+
+  <section class="module-content">
+    <div id="about" class="module-section">About me content goes here.</div>
+    <div id="projects" class="module-section">Projects I’ve worked on...</div>
+    <div id="gallery" class="module-section">Latest blog posts...</div>
+    <div id="more" class="module-section">More to do...</div>
+  </section>
+  
+  <script>
+    const tabs = document.querySelectorAll('.module-tab');
+    const sections = document.querySelectorAll('.module-section');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        sections.forEach(sec => sec.classList.remove('active'));
+        const targetId = tab.getAttribute('data-target');
+        document.getElementById(targetId).classList.add('active');
+      });
+    });
+  </script>
 
 </body>
 </html>
