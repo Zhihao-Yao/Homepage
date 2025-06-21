@@ -1,1 +1,1 @@
-Customize Your Homepage
+Customized Homepage
