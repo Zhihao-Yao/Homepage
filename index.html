@@ -35,7 +35,7 @@
       color: #555;
       font-size: 1em;
       padding: 0 10px;
-      font-family: "Lobster", serif;
+      font-family: "Lobster", fantasy;
     }
     .hero-text::before,
     .hero-text::after {
@@ -109,7 +109,8 @@
       align-items: center;
       justify-content: center;
       position: relative;
-      margin: 2em 0 1em;
+      max-width: 400px;
+      margin: 2em auto;
       color: #666;
       font-size: 0.9em;
       text-transform: uppercase;
@@ -118,13 +119,15 @@
     .line-with-text::before,
     .line-with-text::after {
       content: "";
-      flex: 1;
+      flex: none;
+      width: 100px;
       height: 1px;
       background-color: #ccc;
       margin: 0 0.5em;
     }
     /* Social icons */
     .social-icons {
+      text-align: center;
       margin-top: 1em;
       display: flex;
       gap: 20px;
