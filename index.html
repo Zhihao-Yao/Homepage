@@ -84,6 +84,10 @@
       to { opacity: 1; }
     }
     /* Other customized styles */
+    .find-me {
+      margin: 3em 0;        /* spacing above and below */
+      text-align: center;   /* center everything inside */
+      padding: 1em 0;
     .greeting {
       font-size: 1.4em;
       font-weight: bold;
@@ -162,7 +166,7 @@
     <div id="more" class="module-section">More to do...</div>
   </section>
 
-  <section class="intro-section">
+  <div class="find-me">
     <div class="line-with-text">find me</div>
     <div class="social-icons">
       <a href="https://github.com/zhh-yao" target="_blank">
@@ -179,7 +183,7 @@
       </a>
     </div>
     </div>
-  </section>
+  </div>
 
   <script>
     const tabs = document.querySelectorAll('.module-tab');
