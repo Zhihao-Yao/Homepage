@@ -25,15 +25,25 @@
       position: relative;
     }
     .hero-text {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       position: absolute;
       top: 105%;
       left: 50%;
       transform: translate(-50%, -50%);
       color: #555;
       font-size: 1em;
-      text-align: center;
       padding: 0 10px;
-      font-family: "Lobster", cursive;
+      font-family: "Lobster", serif;
+    }
+    .hero-text::before,
+    .hero-text::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background-color: #ccc;
+      margin: 0 0.5em;
     }
     /* Introduction area below the image */
     .intro-section {
@@ -84,17 +94,20 @@
       to { opacity: 1; }
     }
     /* Other customized styles */
-    .find-me {
-      margin: 3em 0;        /* spacing above and below */
-      text-align: center;   /* center everything inside */
-      padding: 1em 0;
     .greeting {
       font-size: 1.4em;
       font-weight: bold;
       color: #333;
     }
+    
+    .find-me {
+      margin: 3em 0;        /* spacing above and below */
+      text-align: center;   /* center everything inside */
+      padding: 1em 0;
     .line-with-text {
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       position: relative;
       margin: 2em 0 1em;
       color: #666;
