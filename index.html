@@ -83,6 +83,40 @@
       to { opacity: 1; }
     }
     /* Other customized styles */
+    .find-me {
+      position: fixed;      /* stays in place even when scrolling */
+      bottom: 20px;         /* distance from bottom */
+      right: 20px;          /* distance from right */
+      background: #f9f9f9;  /* light background */
+      padding: 10px 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      font-family: sans-serif;
+    }
+
+    .find-me h3 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    .find-me ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .find-me li {
+      margin: 4px 0;
+    }
+
+    .find-me a {
+      text-decoration: none;
+      color: #0077cc;
+    }
+    .find-me a:hover {
+      text-decoration: underline;
+    }
     .greeting {
       font-size: 1.4em;
       font-weight: bold;
@@ -140,21 +174,6 @@
   <header class="intro-section">
     <div class="intro left-intro">
       <p><span class="greeting">Hi</span> there, my name is Zhihao Yao (姚志豪). I am a researcher in Bioinformatics and Computational Biology. My interest lies in the interdisciplinary innovation in artificial intelligence, complex diseases, and multi-omics data.</p>
-      <div class="line-with-text">find me</div>
-      <div class="social-icons">
-        <a href="https://github.com/zhh-yao" target="_blank">
-          <img src="supp/github.svg" alt="GitHub">
-        </a>
-        <a href="mailto:zhhyao823917@gmail.com" target="_blank">
-          <img src="supp/gmail.svg" alt="Email">
-        </a>
-        <a href="https://www.instagram.com/yyyyzhihao/" target="_blank">
-          <img src="supp/instagram.svg" alt="Instagram">
-        </a>
-        <a href="https://www.instagram.com/yyyyzhihao/" target="_blank">
-          <img src="supp/wechat.svg" alt="Wechat">
-        </a>
-      </div>
     </div>
     <div class="intro right-intro">
       <p>I specialize in machine learning, bioinformatics, and building tools that help scientists get insights faster.</p>
@@ -182,6 +201,28 @@
     <div id="more" class="module-section">More to do...</div>
   </section>
   
+  <div class="find-me">
+    <h3>Find me</h3>
+    <ul>
+      <li><a href="https://github.com/zhh-yao" target="_blank">
+            <img src="supp/github.svg" alt="GitHub">
+          </a>
+      </li>
+      <li><a href="mailto:zhhyao823917@gmail.com" target="_blank">
+            <img src="supp/gmail.svg" alt="Email">
+          </a>
+      </li>
+      <li><a href="https://www.instagram.com/yyyyzhihao/" target="_blank">
+            <img src="supp/instagram.svg" alt="Instagram">
+          </a>
+      </li>
+      <li><a href="https://www.instagram.com/yyyyzhihao/" target="_blank">
+            <img src="supp/wechat.svg" alt="Wechat">
+          </a>
+      </li>
+    </ul>
+  </div>
+
   <section class="intro-section">
     <div class="line-with-text">find me</div>
     <div class="social-icons">
