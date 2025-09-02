@@ -15,6 +15,7 @@
       padding: 2em;
       line-height: 24px;
     }
+
     /* Full-width hero image */
     .hero-image {
       background-image: url('supp/background.jpg');
@@ -25,26 +26,15 @@
       position: relative;
     }
     .hero-text {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: absolute;
-      top: 105%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      text-align: center;
       color: #555;
       font-size: 1em;
-      padding: 0 10px;
+      padding: 1em;
+      max-width: 600px;
+      margin: 0 auto;
       font-family: "Lobster", cursive;
     }
-    .hero-text::before,
-    .hero-text::after {
-      content: "";
-      flex: 1;
-      height: 1px;
-      background-color: #ccc;
-      margin: 0 0.5em;
-    }
+    
     /* Introduction area below the image */
     .intro-section {
       display: flex;
@@ -104,6 +94,7 @@
       margin: 3em 0;        /* spacing above and below */
       text-align: center;   /* center everything inside */
       padding: 1em 0;
+    }
     .line-with-text {
       display: flex;
       align-items: center;
