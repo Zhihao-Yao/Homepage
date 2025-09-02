@@ -9,6 +9,9 @@
   <style>
     /* Global font style */
     body {
+      background-color: #ffffff;
+      color: #333;
+      transition: background-color 0.5s, color 0.5s;
       font-family: Arial, sans-serif;
       max-width: 100%;
       margin: 0 auto;
@@ -25,6 +28,7 @@
       display: grid;
       grid-template-columns: 50px 100px 120px 100px 100px 300px;
       background-color: #ffffff;
+      transition: background-color 0.5s, color 0.5s;
       gap: 10px;
       padding: 0.5em 0;
       text-align: center;
@@ -59,6 +63,9 @@
     body.dark-mode {
       background-color: #121212;
       color: #ddd;
+    }
+    body.dark-mode .navbar {
+      background-color: #000;
     }
     body.dark-mode .navbar a {
       color: #ddd;
