@@ -20,7 +20,7 @@
     .navbar {
       display: grid;
       grid-template-columns: repeat(5, 1fr); /* 5 equal columns */
-      background-color: #333;
+      background-color: transparent;
       padding: 0.5em 0;
       text-align: center;
       position: sticky; /* stays at the top when scrolling */
@@ -28,7 +28,7 @@
       z-index: 10;
     }
     .navbar a {
-      color: white;
+      color: #333;
       text-decoration: none;
       padding: 0.8em 0;
       font-weight: bold;
@@ -38,7 +38,9 @@
       background-color: #555;
     }
     .navbar a.active {
-      background-color: #007BFF; /* Highlight current page */
+      font-weight: bold;
+      color: #333;
+      pointer-events: none;
     }
     
     /* Full-width hero image */
