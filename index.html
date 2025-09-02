@@ -16,6 +16,34 @@
       line-height: 24px;
     }
 
+    /* Navigation Bar Styling */
+    .navbar {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr); /* 5 equal columns */
+      background-color: #333;
+      padding: 0.5em 0;
+      text-align: center;
+      position: sticky; /* stays at the top when scrolling */
+      top: 0;
+      z-index: 10;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      padding: 0.8em 0;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .navbar a:hover {
+      background-color: #555;
+    }
+
+    .navbar a.active {
+      background-color: #007BFF; /* Highlight current page */
+    }
+    
     /* Full-width hero image */
     .hero-image {
       background-image: url('supp/background.jpg');
@@ -137,11 +165,22 @@
 </head>
 
 <body>
-  <div class="hero-image">
-    <div class="hero-text">
-      <p>“Look deep into nature, and then you will understand everything better.”</p>
-    </div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="index.html" class="active">Home</a>
+    <a href="me.html">Me</a>
+    <a href="academic.html">Academic</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="more.html">More</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="hero-image"></div>
+  <div class="hero-text">
+    <p>“Look deep into nature, and then you will understand everything better.”</p>
   </div>
+  
 
   <header class="intro-section">
     <div class="intro left-intro">
