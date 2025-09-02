@@ -23,7 +23,7 @@
     }
     .navbar {
       display: grid;
-      grid-template-columns: 50px 100px 120px 100px 100px;
+      grid-template-columns: 50px 100px 120px 100px 100px 300px;
       background-color: #ffffff;
       gap: 10px;
       padding: 0.5em 0;
@@ -44,6 +44,27 @@
       font-weight: bold;
       color: #000000;
       pointer-events: none;
+    }
+    #dark-mode-toggle {
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      font-size: 1.2em;
+      transition: transform 0.2s;
+    }
+    #dark-mode-toggle:hover {
+      transform: scale(1.2);
+    }
+    /* Dark mode styles */
+    body.dark-mode {
+      background-color: #121212;
+      color: #ddd;
+    }
+    body.dark-mode .navbar a {
+      color: #ddd;
+    }
+    body.dark-mode .navbar a:hover {
+      color: #bbb;
     }
     
     /* Full-width hero image */
@@ -174,6 +195,7 @@
     <a href="academic.html"> 📚 Academic</a>
     <a href="gallery.html"> 📷 Gallery</a>
     <a href="more.html"> 🚀 More</a>
+    <button id="dark-mode-toggle">🌙</button>
   </nav>
 
   <!-- Hero Section -->
