@@ -54,18 +54,18 @@
       background: transparent;
       border: none;
       font-size: 1.2em;
-      transition: transform 0.2s;
+      transition: transform 0.5s;
     }
     #dark-mode-toggle:hover {
       transform: scale(1.2);
     }
     /* Dark mode styles */
     body.dark-mode {
-      background-color: #121212;
+      background-color: #333;
       color: #ddd;
     }
     body.dark-mode .navbar {
-      background-color: #000;
+      background-color: #333;
     }
     body.dark-mode .navbar a {
       color: #ddd;
@@ -280,7 +280,7 @@
 
       // Change button icon
       if (document.body.classList.contains("dark-mode")) {
-        toggle.textContent = "☀︎"; // sun icon for dark mode
+        toggle.textContent = "☀️"; // sun icon for dark mode
       } else {
         toggle.textContent = "⏾"; // moon icon for day mode
       }
