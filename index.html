@@ -17,17 +17,24 @@
     }
 
     /* Navigation Bar Styling */
+    .navbar-container {
+      max-width: 800px;   /* limit total width */
+      margin: 0 auto;     /* center horizontally */
+    }
     .navbar {
       display: grid;
-      grid-template-columns: repeat(5, 1fr); /* 5 equal columns */
+      grid-template-columns: auto 1fr 1fr 1fr 1fr;
       background-color: #ffffff;
-      padding: 0.5em 0.5em;
+      gap: 20px;
+      padding: 0.5em 0;
       text-align: center;
       position: sticky; /* stays at the top when scrolling */
       top: 0;
       z-index: 10;
     }
     .navbar a {
+      color: #333;  
+      font-size: 0.9em; 
       text-decoration: none;
       padding: 0.8em 0;
       font-weight: bold;
