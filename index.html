@@ -24,7 +24,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1em;
+      padding: 0.3em 1em;
       background-color: #ffffff;
       gap: 30px;
       /* stays at the top when scrolling */
@@ -37,23 +37,18 @@
       display: flex;
       justify-content: center;
       flex-grow: 1;          /* take up all available space */
-      gap: 100px;            /* space between links */
+      gap: 70px;             /* space between links */
     }
     .navbar a {
       color: #3e3e3e;  
       font-size: 0.9em; 
       text-decoration: none;
-      padding: 0.8em 0;
+      padding: 0.5em 0;
       font-weight: normal;
       transition: color 1s;
     }
     .navbar a:hover {
-      color: #6c6c6c;
-    }
-    .navbar a.active {
-      font-weight: bold;
-      color: #000000;
-      pointer-events: none;
+      color: #949494;
     }
     #dark-mode-toggle {
       cursor: pointer;
@@ -293,6 +288,8 @@
         toggle.textContent = "⏾"; // moon icon for day mode
       }
     });
+
+    type='text/javascript' id='mapmyvisitors' src='https://mapmyvisitors.com/map.js?cl=0e1633&w=300&t=tt&d=Z2lEI_MihfXc5WqsdVWq9t_OW44-ScmgJ7LtYliHR_w&co=ffffff&ct=828282&cmo=c7a6ff&cmn=56b3c6'>
   </script>
 
 </body>
