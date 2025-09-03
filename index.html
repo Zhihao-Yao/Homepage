@@ -299,27 +299,28 @@
       }
     });
 
-    /* Snow function */
+  </script>
+
+  <div class="snow"></div>
+
+  <script>
     function createSnowflakes() {
       const snowContainer = document.querySelector('.snow');
-      snowContainer.innerHTML = ''; // clear old snowflakes
-      for (let i = 0; i < 50; i++) {  // number of snowflakes
+      snowContainer.innerHTML = ''; // Clear old flakes
+      for (let i = 0; i < 50; i++) { // Adjust number of flakes
         const snowflake = document.createElement('div');
         snowflake.classList.add('snowflake');
-        snowflake.textContent = '❄'; // you can use ❅ or ❆
+        snowflake.textContent = '❄';
         snowflake.style.left = Math.random() * 100 + 'vw';
-        snowflake.style.animationDuration = Math.random() * 3 + 2 + 's'; // 2-5s
+        snowflake.style.animationDuration = Math.random() * 5 + 5 + 's'; // 5-10s
         snowflake.style.fontSize = Math.random() * 10 + 10 + 'px'; // 10-20px
         snowflake.style.opacity = Math.random();
         snowContainer.appendChild(snowflake);
       }
     }
-    // Run once on page load
+
     createSnowflakes();
-
   </script>
-
-<div class="snow"></div>
-
+  
 </body>
 </html>
