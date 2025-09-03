@@ -180,6 +180,38 @@
       background: #333;
       color: #ddd;
     }
+  
+    /* Snow container (hidden by default) */
+    .snow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none; /* clicks pass through */
+      overflow: hidden;
+      z-index: 999; /* above everything */
+      display: none; /* hidden unless dark mode */
+    }
+    /* Snowflake style */
+    .snowflake {
+      position: absolute;
+      top: -10px;
+      color: white;
+      font-size: 1em;
+      animation: fall linear infinite;
+      opacity: 0.8;
+    }
+    /* Snowflake falling animation */
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+      }
+    }
+    /* Show snow only in dark mode */
+    body.dark-mode .snow {
+      display: block;
+    }
 
   </style>
 </head>
@@ -251,10 +283,10 @@
       });
     });
 
+    /*Dark mode*/
     const darkModeToggle = document.getElementById('dark-mode-toggle');
     const darkModeIcon = document.getElementById('dark-mode-icon');
     const body = document.body;
-
     darkModeToggle.addEventListener('click', () => {
       body.classList.toggle('dark-mode');
 
@@ -266,7 +298,28 @@
         darkModeIcon.alt = 'Dark Mode';
       }
     });
+
+    /* Snow function */
+    function createSnowflakes() {
+      const snowContainer = document.querySelector('.snow');
+      snowContainer.innerHTML = ''; // clear old snowflakes
+      for (let i = 0; i < 50; i++) {  // number of snowflakes
+        const snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+        snowflake.textContent = '❄'; // you can use ❅ or ❆
+        snowflake.style.left = Math.random() * 100 + 'vw';
+        snowflake.style.animationDuration = Math.random() * 3 + 2 + 's'; // 2-5s
+        snowflake.style.fontSize = Math.random() * 10 + 10 + 'px'; // 10-20px
+        snowflake.style.opacity = Math.random();
+        snowContainer.appendChild(snowflake);
+      }
+    }
+    // Run once on page load
+    createSnowflakes();
+
   </script>
+
+<div class="snow"></div>
 
 </body>
 </html>
