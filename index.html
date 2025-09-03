@@ -105,38 +105,7 @@
       font-size: 1em;
       line-height: 1.6;
     }
-    /* Module grid layout */
-    .module-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      text-align: center;
-      padding: 1em 2em;
-      gap: 1em;
-    }
-    .module-tab {
-      padding: 1em;
-      font-weight: bold;
-      color: white;
-      background-color: #4ECDC4;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: transform 1s ease;
-    }
-    .module-tab:hover {
-      transform: scale(1.05);
-      background-color: #3cb6ae;
-    }
-    /* Content sections (hidden by default) */
-    .module-content {
-      padding: 2em;
-    }
-    .module-section {
-      display: none;
-      animation: fadeIn 0.3s ease;
-    }
-    .module-section.active {
-      display: block;
-    }
+    
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
@@ -214,7 +183,7 @@
     <p>“Look deep into nature, and then you will understand everything better.”</p>
   </div>
   
-
+  <!-- Intro Section -->
   <header class="intro-section">
     <div class="intro left-intro">
       <p><span class="greeting">Hi</span> there, my name is Zhihao Yao (姚志豪). I am a researcher in Bioinformatics and Computational Biology. My interest lies in the interdisciplinary innovation in artificial intelligence, complex diseases, and multi-omics data.</p>
@@ -224,27 +193,7 @@
     </div>
   </header>
 
-  <section class="module-grid">
-    <div class="module-tab" data-target="about">About</div>
-    <div class="module-tab" data-target="acdemic">Acdemic</div>
-    <div class="module-tab" data-target="gallery">Gallery</div>
-    <div class="module-tab" data-target="more">More</div>
-  </section>
-
-  <section class="module-content">
-    <div id="about" class="module-section">About me content goes here.</div>
-    <div id="acdemic" class="module-section">
-      <ul>
-        <li><strong>Long-reads RNA-seq and Splicing</strong>: Description here. <a href="#">[A]</a></li>
-        <li><strong>3D-genomics Community Analysis </strong>: Description here. <a href="#">[B]</a></li>
-        <li><strong>Cancer Evolution and Heterogeneity</strong>: Description here. <a href="#">[C]</a></li>
-        <li><strong>High-dimentional Data Correlation</strong>: Description here. <a href="#">[D]</a></li>
-      </ul>
-    </div>
-    <div id="gallery" class="module-section">Latest blog posts...</div>
-    <div id="more" class="module-section">More to do...</div>
-  </section>
-
+  <!-- FIND-ME Section -->
   <div class="find-me">
     <div class="line-with-text">find me</div>
     <div class="social-icons">
@@ -264,6 +213,8 @@
     </div>
   </div>
 
+  <script type='text/javascript' id='mapmyvisitors' src='https://mapmyvisitors.com/map.js?cl=0e1633&w=300&t=tt&d=Z2lEI_MihfXc5WqsdVWq9t_OW44-ScmgJ7LtYliHR_w&co=ffffff&ct=828282&cmo=c7a6ff&cmn=56b3c6'></script>
+  
   <script>
     const tabs = document.querySelectorAll('.module-tab');
     const sections = document.querySelectorAll('.module-section');
@@ -288,8 +239,6 @@
         toggle.textContent = "⏾"; // moon icon for day mode
       }
     });
-
-    <script type='text/javascript' id='mapmyvisitors' src='https://mapmyvisitors.com/map.js?cl=0e1633&w=300&t=tt&d=Z2lEI_MihfXc5WqsdVWq9t_OW44-ScmgJ7LtYliHR_w&co=ffffff&ct=828282&cmo=c7a6ff&cmn=56b3c6'></script>
 
   </script>
 
