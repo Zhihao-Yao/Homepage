@@ -50,34 +50,6 @@
     .navbar a:hover {
       color: #949494;
     }
-    #dark-mode-toggle {
-      cursor: pointer;
-      background: transparent;
-      border: none;
-      font-size: 0.9em;
-      transition: transform 0.5s;
-    }
-    #dark-mode-toggle:hover {
-      transform: scale(1.2);
-    }
-    /* Dark mode styles */
-    body.dark-mode {
-      background-color: #333;
-      color: #ffffff;
-    }
-    body.dark-mode .navbar {
-      background-color: #333;
-    }
-    body.dark-mode .navbar a {
-      color: #ffffff;
-    }
-    body.dark-mode .navbar a:hover {
-      color: #949494;
-    }
-    body.dark-mode .footer-section {
-      background: #333;
-      color: #ddd;
-    }
     
     /* Full-width hero image */
     .hero-image {
@@ -133,6 +105,7 @@
       padding: 2em;
       background: #f9f9f9; /* optional light background */
       margin-top: 2em; /* space before footer */
+      transition: background-color 1s, color 1s;
     }
     .find-me {
       text-align: center;   /* center everything inside */
@@ -174,6 +147,36 @@
       opacity: 0.8;
       cursor: pointer;
     }
+
+    #dark-mode-toggle {
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      font-size: 0.9em;
+      transition: transform 0.5s;
+    }
+    #dark-mode-toggle:hover {
+      transform: scale(1.2);
+    }
+    /* Dark mode styles */
+    body.dark-mode {
+      background-color: #333;
+      color: #ffffff;
+    }
+    body.dark-mode .navbar {
+      background-color: #333;
+    }
+    body.dark-mode .navbar a {
+      color: #ffffff;
+    }
+    body.dark-mode .navbar a:hover {
+      color: #949494;
+    }
+    body.dark-mode .footer-section {
+      background: #333;
+      color: #ddd;
+    }
+
   </style>
 </head>
 
