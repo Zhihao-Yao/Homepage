@@ -42,15 +42,18 @@
       display: flex;
       justify-content: center;
       flex-grow: 1;          /* take up all available space */
-      gap: 20px;             /* space between links */
+      gap: 50px;             /* space between links */
     }
     .navbar a {
-      color: #5a5959;  
+      color: #3e3e3e;  
       font-size: 0.9em; 
       text-decoration: none;
       padding: 0.8em 0;
       font-weight: normal;
       transition: color 1s;
+    }
+    .navbar a:hover {
+      color: #6c6c6c;
     }
     .navbar a.active {
       font-weight: bold;
@@ -61,8 +64,8 @@
       cursor: pointer;
       background: transparent;
       border: none;
-      font-size: 1.2em;
-      transition: transform 1s;
+      font-size: 0.9em;
+      transition: transform 0.5s;
     }
     #dark-mode-toggle:hover {
       transform: scale(1.2);
@@ -76,7 +79,7 @@
       background-color: #333;
     }
     body.dark-mode .navbar a {
-      color: #ddd;
+      color: #ffffff;
     }
     body.dark-mode .navbar a:hover {
       color: #bbb;
@@ -93,7 +96,7 @@
     .hero-text {
       text-align: center;
       color: #555;
-      font-size: 1em;
+      font-size: 0.9em;
       padding: 1em;
       max-width: 600px;
       margin: 0 auto;
@@ -204,18 +207,16 @@
 <body>
 
   <!-- Navigation Bar -->
-  <div class="navbar-container">
-    <nav class="navbar">
-      <div class="nav-links">
-        <a href="index.html" class="active"> 🏠 </a>
-        <a href="me.html"> 👨🏻‍💻 Me</a>
-        <a href="academic.html"> 📚 Academic</a>
-        <a href="gallery.html"> 📷 Gallery</a>
-        <a href="more.html"> 🚀 More</a>
-      </div>
-      <button id="dark-mode-toggle">⏾</button>
-    </nav>
-  </div>
+  <nav class="navbar">
+    <div class="nav-links">
+      <a href="index.html" class="active"> 🏠 </a>
+      <a href="me.html"> 👨🏻‍💻 Me</a>
+      <a href="academic.html"> 📚 Academic</a>
+      <a href="gallery.html"> 📷 Gallery</a>
+      <a href="more.html"> 🚀 More</a>
+    </div>
+    <button id="dark-mode-toggle">⏾</button>
+  </nav>
 
   <!-- Hero Section -->
   <div class="hero-image"></div>
