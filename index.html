@@ -114,30 +114,24 @@
       from { opacity: 0; }
       to { opacity: 1; }
     }
-    /* Other customized styles */
+
+    /* Greeting for the first letter*/
     .greeting {
       font-size: 1.4em;
       font-weight: bold;
       color: #333;
     }
 
-    /* Visitor map at bottom-left */
-    #visitor-map-container {
-      position: fixed;
-      bottom: 0px;
-      left: 100px;
-      height: 300px;
-      z-index: 1000;
-    }
     /* FIND ME */
+    .footer-section {
+      display: flex;
+      justify-content: center; /* center the Find Me section */
+      padding: 2em;
+      background: #f9f9f9; /* optional light background */
+      margin-top: 2em; /* space before footer */
+    }
     .find-me {
-      position: fixed;
-      bottom: 10px;
-      right: 100px;
-      height: 300px;
-      /*margin: 3em 0;         spacing above and below */
       text-align: center;   /* center everything inside */
-      z-index: 1000;
     }
     .line-with-text {
       display: flex;
@@ -190,7 +184,9 @@
       <a href="gallery.html"> 📷 Gallery</a>
       <a href="more.html"> 🚀 More</a>
     </div>
-    <button id="dark-mode-toggle">⏾</button>
+    <button id="dark-mode-toggle">
+      <img id="dark-mode-icon" src="supp/moon.png" alt="Dark Mode" width="20">
+    </button>
   </nav>
 
   <!-- Hero Section -->
@@ -210,29 +206,24 @@
     </div>
   </header>
 
-
-  <!-- Map My Visitors Section -->
-  <div id="visitor-map-container">
-    <script type='text/javascript' id='mapmyvisitors' src='https://mapmyvisitors.com/map.js?cl=0e1633&w=300&t=tt&d=Z2lEI_MihfXc5WqsdVWq9t_OW44-ScmgJ7LtYliHR_w&co=ffffff&ct=828282&cmo=c7a6ff&cmn=56b3c6'></script>
-  </div>
-
   <!-- FIND-ME Section -->
-  <div class="find-me">
-    <div class="line-with-text">find me</div>
-    <div class="social-icons">
-      <a href="https://github.com/zhh-yao" target="_blank">
-        <img src="supp/github.svg" alt="GitHub">
-      </a>
-      <a href="mailto:zhhyao823917@gmail.com" target="_blank">
-        <img src="supp/gmail.svg" alt="Email">
-      </a>
-      <a href="https://www.instagram.com/yyyyzhihao/" target="_blank">
-        <img src="supp/instagram.svg" alt="Instagram">
-      </a>
-      <a href="https://www.instagram.com/yyyyzhihao/" target="_blank">
-        <img src="supp/wechat.svg" alt="Wechat">
-      </a>
-    </div>
+  <div class="footer-section">
+    <div class="find-me">
+      <div class="line-with-text">find me</div>
+      <div class="social-icons">
+        <a href="https://github.com/zhh-yao" target="_blank">
+          <img src="supp/github.svg" alt="GitHub">
+        </a>
+        <a href="mailto:zhhyao823917@gmail.com" target="_blank">
+          <img src="supp/gmail.svg" alt="Email">
+        </a>
+        <a href="https://www.instagram.com/yyyyzhihao/" target="_blank">
+          <img src="supp/instagram.svg" alt="Instagram">
+        </a>
+        <a href="https://www.instagram.com/yyyyzhihao/" target="_blank">
+          <img src="supp/wechat.svg" alt="Wechat">
+        </a>
+      </div>
     </div>
   </div>
 
@@ -249,16 +240,19 @@
       });
     });
 
-    const toggle = document.getElementById("dark-mode-toggle");
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const darkModeIcon = document.getElementById('dark-mode-icon');
+    const body = document.body;
 
-    toggle.addEventListener("click", () => {
-      document.body.classList.toggle("dark-mode");
+    darkModeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
 
-      // Change button icon
-      if (document.body.classList.contains("dark-mode")) {
-        toggle.textContent = "☀️"; // sun icon for dark mode
+      if (body.classList.contains('dark-mode')) {
+        darkModeIcon.src = 'supp/sun.png';  // icon for light mode
+        darkModeIcon.alt = 'Light Mode';
       } else {
-        toggle.textContent = "⏾"; // moon icon for day mode
+        darkModeIcon.src = 'supp/moon.png'; // icon for dark mode
+        darkModeIcon.alt = 'Dark Mode';
       }
     });
   </script>
