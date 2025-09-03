@@ -120,18 +120,31 @@
       font-weight: bold;
       color: #333;
     }
+
+    /* Visitor map at bottom-left */
+    #visitor-map-container {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 300px;
+      height: 300px;
+      z-index: 1000;
+    }
     /* FIND ME */
     .find-me {
-      margin: 3em 0;        /* spacing above and below */
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 300px;
+      /*margin: 3em 0;         spacing above and below */
       text-align: center;   /* center everything inside */
-      padding: 1em 0;
+      z-index: 1000;
     }
     .line-with-text {
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
-      max-width: 400px;
+      /*position: relative;*/
       margin: 2em auto;
       color: #666;
       font-size: 0.9em;
@@ -182,11 +195,12 @@
   </nav>
 
   <!-- Hero Section -->
-  <div class="hero-image"></div>
-  <div class="hero-text">
-    <p>“Look deep into nature, and then you will understand everything better.”</p>
+  <div class="hero-image">
+    <div class="hero-text">
+      “Look deep into nature, and then you will understand everything better.”
+    </div>
   </div>
-  
+
   <!-- Intro Section -->
   <header class="intro-section">
     <div class="intro left-intro">
@@ -196,6 +210,12 @@
       <p>I specialize in machine learning, bioinformatics, and building tools that help scientists get insights faster.</p>
     </div>
   </header>
+
+
+  <!-- Map My Visitors Section -->
+  <div id="visitor-map-container">
+    <script type='text/javascript' id='mapmyvisitors' src='https://mapmyvisitors.com/map.js?cl=0e1633&w=300&t=tt&d=Z2lEI_MihfXc5WqsdVWq9t_OW44-ScmgJ7LtYliHR_w&co=ffffff&ct=828282&cmo=c7a6ff&cmn=56b3c6'></script>
+  </div>
 
   <!-- FIND-ME Section -->
   <div class="find-me">
@@ -217,8 +237,7 @@
     </div>
   </div>
 
-  <script type='text/javascript' id='mapmyvisitors' src='https://mapmyvisitors.com/map.js?cl=0e1633&w=300&t=tt&d=Z2lEI_MihfXc5WqsdVWq9t_OW44-ScmgJ7LtYliHR_w&co=ffffff&ct=828282&cmo=c7a6ff&cmn=56b3c6'></script>
-  
+  <!-- Other Function Section -->
   <script>
     const tabs = document.querySelectorAll('.module-tab');
     const sections = document.querySelectorAll('.module-section');
@@ -243,7 +262,6 @@
         toggle.textContent = "⏾"; // moon icon for day mode
       }
     });
-
   </script>
 
 </body>
