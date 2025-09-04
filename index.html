@@ -72,6 +72,7 @@
       padding: 1em;
       max-width: 600px;
       font-family: "Lobster", cursive;
+      transition: color 1s ease;
     }
     
     /* Introduction area below the image */
@@ -175,6 +176,9 @@
     }
     body.dark-mode .hero-image {
       background-image: url('supp/background-dark.jpg');
+    }
+    body.dark-mode .hero-text {
+      color: #fff; /* white in dark mode */
     }
     body.dark-mode .footer-section {
       background: #333;
@@ -299,6 +303,20 @@
       }
     });
 
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const body = document.body;
+    const heroText = document.querySelector('.hero-text');
+
+    darkModeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+
+      if (body.classList.contains('dark-mode')) {
+        heroText.textContent = "It is often in the darkest skies that we see the brightest stars.";
+      } else {
+        heroText.textContent = "Look deep into nature, and then you will understand everything better.";
+      }
+    });
+
   </script>
 
   <div class="snow"></div>
@@ -321,6 +339,6 @@
 
     createSnowflakes();
   </script>
-  
+
 </body>
 </html>
