@@ -72,7 +72,8 @@
       padding: 1em;
       max-width: 600px;
       font-family: "Lobster", cursive;
-      transition: color 1s ease;
+      transition: color 1s ease, opacity 1s ease;
+      opacity: 1;
     }
     
     /* Introduction area below the image */
@@ -264,16 +265,19 @@
     const heroText = document.querySelector('.hero-text');
     darkModeToggle.addEventListener('click', () => {
       body.classList.toggle('dark-mode');
-
-      if (body.classList.contains('dark-mode')) {
-        darkModeIcon.src = 'supp/sun.png';  // icon for light mode
-        darkModeIcon.alt = 'Light Mode';
-        heroText.textContent = "It is often in the darkest skies that we see the brightest stars.";
-      } else {
-        darkModeIcon.src = 'supp/moon.png'; // icon for dark mode
-        darkModeIcon.alt = 'Dark Mode';
-        heroText.textContent = "Look deep into nature, and then you will understand everything better.";
-      }
+      heroText.style.opacity = 0;
+      setTimeout(() => {
+        if (body.classList.contains('dark-mode')) {
+          darkModeIcon.src = 'supp/sun.png';  // icon for light mode
+          darkModeIcon.alt = 'Light Mode';
+          heroText.textContent = '"It is often in the darkest skies that we see the brightest stars."';
+        } else {
+          darkModeIcon.src = 'supp/moon.png'; // icon for dark mode
+          darkModeIcon.alt = 'Dark Mode';
+          heroText.textContent = '"Look deep into nature, and then you will understand everything better."';
+        }
+        heroText.style.opacity = 1;
+      }, 500);
     });
   </script>
 
