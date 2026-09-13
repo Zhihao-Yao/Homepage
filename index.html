@@ -6,6 +6,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Zhihao's Universe</title>
+  <link rel="preload" as="image" href="supp/background-dark.jpg" />
   <style>
     /* Global font style */
     body {
@@ -59,7 +60,16 @@
       background-position: center;
       height: 500px;
       width: 100%;
-      transition: background-image 1s ease-in-out;
+      overflow: hidden;
+    }
+    .hero-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('supp/background-dark.jpg') center / cover;
+      opacity: 0;
+      transition: opacity 0.45s ease-in-out;
+      pointer-events: none;
     }
     .hero-text {
       position: absolute;
@@ -74,6 +84,7 @@
       font-family: "Lobster", cursive;
       transition: color 1s ease, opacity 1s ease;
       opacity: 1;
+      z-index: 1;
     }
     
     /* Introduction area below the image */
@@ -87,6 +98,32 @@
       flex: 1;
       font-size: 1em;
       line-height: 1.6;
+    }
+
+    /* Music section */
+    .music-section {
+      padding: 0 2em 2em;
+      text-align: center;
+    }
+    .music-section h2 {
+      margin: 0;
+      font-size: 1.1em;
+      font-weight: normal;
+      color: #555;
+    }
+    .music-section p {
+      max-width: 540px;
+      margin: 0.7em auto 1.2em;
+      color: #777;
+      font-size: 0.9em;
+    }
+    .music-player {
+      display: block;
+      width: min(100%, 540px);
+      height: 152px;
+      margin: 0 auto;
+      border: 0;
+      border-radius: 12px;
     }
 
     @keyframes fadeIn {
@@ -158,6 +195,19 @@
       font-size: 0.9em;
       transition: transform 0.5s;
     }
+    #language-toggle {
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      color: #3e3e3e;
+      font-size: 0.9em;
+      padding: 0.5em 0;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+    #language-toggle:hover {
+      color: #949494;
+      transform: scale(1.1);
+    }
     #dark-mode-toggle:hover {
       transform: scale(1.2);
     }
@@ -175,8 +225,14 @@
     body.dark-mode .navbar a:hover {
       color: #949494;
     }
-    body.dark-mode .hero-image {
-      background-image: url('supp/background-dark.jpg');
+    body.dark-mode #language-toggle {
+      color: #ffffff;
+    }
+    body.dark-mode #language-toggle:hover {
+      color: #949494;
+    }
+    body.dark-mode .hero-image::after {
+      opacity: 1;
     }
     body.dark-mode .hero-text {
       color: #d9d9d9; /* white in dark mode */
@@ -184,6 +240,12 @@
     body.dark-mode .footer-section {
       background: #333;
       color: #ddd;
+    }
+    body.dark-mode .music-section h2 {
+      color: #eee;
+    }
+    body.dark-mode .music-section p {
+      color: #c8c8c8;
     }
   
   </style>
@@ -200,6 +262,7 @@
       <a href="gallery.html"> 📷 Gallery</a>
       <a href="more.html"> 🚀 More</a>
     </div>
+    <button id="language-toggle" type="button" aria-label="Switch to Chinese">中文</button>
     <button id="dark-mode-toggle">
       <img id="dark-mode-icon" src="supp/moon.png" alt="Dark Mode" width="20">
     </button>
@@ -215,12 +278,26 @@
   <!-- Intro Section -->
   <header class="intro-section">
     <div class="intro left-intro">
-      <p><span class="greeting">Hi</span> there, my name is Zhihao Yao (姚志豪). I am a researcher in Bioinformatics and Computational Biology. My interest lies in the interdisciplinary innovation in artificial intelligence, complex diseases, and multi-omics data.</p>
+      <p><span class="greeting">Hi</span> there, I’m Zhihao. This is a small corner where I share what I’m noticing, thinking about, and learning along the way. I’m still finding my way through life—exploring the questions that draw me in, the people I meet, and the world around me.</p>
     </div>
     <div class="intro right-intro">
-      <p>I specialize in machine learning, bioinformatics, and building tools that help scientists get insights faster.</p>
+      <p>Through ideas, images, and everyday moments, I hope to understand myself a little better and remain curious about the world. I hope you, too, find your own truth.</p>
     </div>
   </header>
+
+  <!-- Music Section -->
+  <section class="music-section" aria-labelledby="music-title">
+    <h2 id="music-title">A little music for the journey</h2>
+    <p id="music-description">Three fingerstyle pieces by Masaaki Kishibe: Dandelion, Drifting Clouds, and Hana.</p>
+    <iframe
+      id="music-player"
+      class="music-player"
+      src="https://open.spotify.com/embed/playlist/37i9dQZF1DZ06evO2Ij4Fq?utm_source=generator"
+      title="Masaaki Kishibe on Spotify"
+      loading="lazy"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+    </iframe>
+  </section>
 
   <!-- FIND-ME Section -->
   <div class="footer-section">
@@ -263,21 +340,84 @@
     const darkModeIcon = document.getElementById('dark-mode-icon');
     const body = document.body;
     const heroText = document.querySelector('.hero-text');
+    const languageToggle = document.getElementById('language-toggle');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const greeting = document.querySelector('.greeting');
+    const intros = document.querySelectorAll('.intro p');
+    const findMe = document.querySelector('.line-with-text');
+    const musicTitle = document.getElementById('music-title');
+    const musicDescription = document.getElementById('music-description');
+    const musicPlayer = document.getElementById('music-player');
+    let isChinese = false;
+
+    const translations = {
+      en: {
+        nav: ['🏠', '👨🏻‍💻 Me', '📚 Academic', '📷 Gallery', '🚀 More'],
+        greeting: 'Hi',
+        introLeft: ' there, I’m Zhihao. This is a small corner where I share what I’m noticing, thinking about, and learning along the way. I’m still finding my way through life—exploring the questions that draw me in, the people I meet, and the world around me.',
+        introRight: 'Through ideas, images, and everyday moments, I hope to understand myself a little better and remain curious about the world. I hope you, too, find your own truth.',
+        findMe: 'find me',
+        title: "Zhihao's Universe",
+        darkMode: 'Dark Mode',
+        lightMode: 'Light Mode',
+        social: ['GitHub', 'Email', 'Instagram', 'WeChat'],
+        musicTitle: 'A little music for the journey',
+        musicDescription: 'Three fingerstyle pieces by Masaaki Kishibe: Dandelion, Drifting Clouds, and Hana.',
+        musicPlayerTitle: 'Masaaki Kishibe on Spotify',
+        lightQuote: '“Look deep into nature, and then you will understand everything better.”',
+        darkQuote: '"It is often in the darkest skies that we see the brightest stars."'
+      },
+      zh: {
+        nav: ['🏠', '👨🏻‍💻 关于我', '📚 学术', '📷 图集', '🚀 更多'],
+        greeting: '好久不见',
+        introLeft: '，我是志豪。欢迎来到这个分享我一路上的观察、思考与学习小小的角落。我仍在寻找自己的人生方向，探索那些吸引我的问题、有趣的人，以及身边的世界。',
+        introRight: '透过经历、思考和记录，我尝试认识自己，认识世界，抵达生命的本质。愿你也能抵达属于自己的真相。',
+        findMe: '联系我',
+        title: '志豪的寰宇',
+        darkMode: '深色模式',
+        lightMode: '浅色模式',
+        social: ['GitHub', '邮箱', 'Instagram', '微信'],
+        musicTitle: '一路的小小乐声',
+        musicDescription: '岸部真明的三首指弹曲：Dandelion、Drifting Clouds 与 Hana。',
+        musicPlayerTitle: 'Spotify 上的岸部真明',
+        lightQuote: '“仰观宇宙之大，俯察品类之盛”',
+        darkQuote: '“夜色最浓处，星光最璀璨”'
+      }
+    };
+
+    function updateLanguage() {
+      const language = isChinese ? translations.zh : translations.en;
+      document.documentElement.lang = isChinese ? 'zh-CN' : 'en';
+      document.title = language.title;
+      navLinks.forEach((link, index) => { link.textContent = language.nav[index]; });
+      greeting.textContent = language.greeting;
+      intros[0].lastChild.textContent = language.introLeft;
+      intros[1].textContent = language.introRight;
+      findMe.textContent = language.findMe;
+      musicTitle.textContent = language.musicTitle;
+      musicDescription.textContent = language.musicDescription;
+      musicPlayer.title = language.musicPlayerTitle;
+      document.querySelectorAll('.social-icons img').forEach((icon, index) => {
+        icon.alt = language.social[index];
+      });
+      languageToggle.textContent = isChinese ? 'EN' : '中文';
+      languageToggle.setAttribute('aria-label', isChinese ? 'Switch to English' : '切换为中文');
+      darkModeIcon.alt = body.classList.contains('dark-mode') ? language.lightMode : language.darkMode;
+      heroText.textContent = body.classList.contains('dark-mode') ? language.darkQuote : language.lightQuote;
+    }
+
+    languageToggle.addEventListener('click', () => {
+      isChinese = !isChinese;
+      updateLanguage();
+    });
+
     darkModeToggle.addEventListener('click', () => {
       body.classList.toggle('dark-mode');
-      heroText.style.opacity = 0;
-      setTimeout(() => {
-        if (body.classList.contains('dark-mode')) {
-          darkModeIcon.src = 'supp/sun.png';  // icon for light mode
-          darkModeIcon.alt = 'Light Mode';
-          heroText.textContent = '"It is often in the darkest skies that we see the brightest stars."';
-        } else {
-          darkModeIcon.src = 'supp/moon.png'; // icon for dark mode
-          darkModeIcon.alt = 'Dark Mode';
-          heroText.textContent = '"Look deep into nature, and then you will understand everything better."';
-        }
-        heroText.style.opacity = 1;
-      }, 500);
+      const isDarkMode = body.classList.contains('dark-mode');
+      darkModeIcon.src = isDarkMode ? 'supp/sun.png' : 'supp/moon.png';
+      const language = isChinese ? translations.zh : translations.en;
+      darkModeIcon.alt = isDarkMode ? language.lightMode : language.darkMode;
+      heroText.textContent = isDarkMode ? language.darkQuote : language.lightQuote;
     });
   </script>
 
